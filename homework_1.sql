@@ -47,7 +47,7 @@ SELECT *
 FROM employee
 WHERE LOWER (full_name) LIKE '%иван%';
 
-SELECT d.name, SUM (e.salary)
+SELECT d.name, AVG (e.salary)
 FROM employee as e inner join department as d on e.department_id = d.id
 GROUP BY d.name;
 
