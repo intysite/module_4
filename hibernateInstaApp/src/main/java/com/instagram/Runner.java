@@ -9,14 +9,10 @@ public class Runner {
     public static void main(String[] args) {
         try(SessionFactory sessionFactory = HibernateConfig.createSessionFactory();
         Session session = sessionFactory.openSession();) {
-            session.beginTransaction();
-            User user = new User("Alex", "1234");
-            session.save(user);
-            Post post = new Post("Один", user);
-            session.save(post);
-            Comment comment = new Comment("Two", user, post);
-            session.save(comment);
-            session.getTransaction().commit();
+            InstDao instDao = new InstDao();
+            instDao.addUser(session, "Alex", "1234");
+            instDao.addPost(session, "Один", 1);
+            instDao.addComment(session, "Two", 1);
         }
     }
 }
