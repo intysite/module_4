@@ -23,7 +23,7 @@ public class Post {
 
     @Column
     @CreationTimestamp
-    private Timestamp created_at;
+    private Timestamp createdAt;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

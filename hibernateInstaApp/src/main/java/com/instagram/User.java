@@ -28,7 +28,7 @@ public class User {
 
     @Column
     @CreationTimestamp
-    private Timestamp created_at;
+    private Timestamp createdAt;
 
     @OneToMany(mappedBy = "user")
     @ToString.Exclude

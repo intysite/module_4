@@ -11,17 +11,17 @@ public class InstDao {
         session.clear();
     }
 
-    public void addPost(Session session, String text, Integer user_id) {
+    public void addPost(Session session, String text, Integer userId) {
         session.beginTransaction();
-        Post post = new Post(text, session.get(User.class, user_id));
+        Post post = new Post(text, session.get(User.class, userId));
         session.save(post);
         session.getTransaction().commit();
         session.clear();
     }
 
-    public void addComment(Session session, String text, Integer post_id) {
+    public void addComment(Session session, String text, Integer postId) {
         session.beginTransaction();
-        Post post = session.get(Post.class, post_id);
+        Post post = session.get(Post.class, postId);
         User user = post.getUser();
         Comment comment = new Comment(text, user, post);
         session.save(comment);
